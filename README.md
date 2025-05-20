@@ -13,16 +13,16 @@ Functional RTL FSM-based vending machine that:
 
 1. Accepts inputs for coins (e.g., ₹5, ₹10)
    
-2.Allows selection of multiple products
+2. Allows selection of multiple products
 
-3.Checks balance and dispenses product if valid
+3. Checks balance and dispenses product if valid
 
-4.Returns change if necessary
+4. Returns change if necessary
 
-5.Rejects or resets on invalid input
+5. Rejects or resets on invalid input
 
-6.Simulation testbench demonstrating all scenarios
+6. Simulation testbench demonstrating all scenarios
 
-7.Synthesized bitstream for deployment on FPGA Mini
+7. Synthesized bitstream for deployment on FPGA Mini
 
 8. Hardware demo using LEDs or 7-segment displays for product dispensing and change indication
