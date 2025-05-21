@@ -1,4 +1,4 @@
-# Vending-Machine-Controller-FSM
+# Project Title - Vending-Machine-Controller-FSM
 # Brief Idea
 This project implements a Finite State Machine (FSM)-based Vending Machine Controller using Verilog HDL, designed to run on the VSD FPGA Mini board. The machine accepts coin inputs and delivers products based on selection logic and sufficient balance. It also handles change return and resets.
 The controller tracks state transitions based on user inputs (coin insertions and product selections), and controls outputs such as product dispense signals and change indicators. All logic is implemented at the RTL level using FSM principles.
@@ -29,7 +29,7 @@ Functional RTL FSM-based vending machine that:
 # Block Diagram
 ![FSM-Vending-Machine](https://github.com/user-attachments/assets/31d47e1c-2367-4cef-a00c-ae2fc338c674)
 
-# FSM transitio Diagram
+# FSM transition Diagram
 
 # Day 2 - RTL Skeleton
 
@@ -48,6 +48,7 @@ Functional RTL FSM-based vending machine that:
 - Declared FSM states and control skeleton (IDLE → WAIT_COIN → CHECK_BALANCE → DISPENSE → RETURN_CHANGE)
 - Began testbench setup in `tb_vending_machine.v`
 - Committed updates in `/src/` and `/sim/` with appropriate structure
+- Created files 'top.v' for board pins assignment and 'coin_counter' for updation on coins used and information.
 - Next step: implement full RTL logic and simulate
 
 # Why This FSM-Based Structure Was Chosen
