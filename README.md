@@ -30,6 +30,7 @@ Functional RTL FSM-based vending machine that:
 ![FSM-Vending-Machine](https://github.com/user-attachments/assets/31d47e1c-2367-4cef-a00c-ae2fc338c674)
 
 # FSM transition Diagram
+![image](https://github.com/user-attachments/assets/bc95bd05-c795-4252-add5-3a4ef1f1706b)
 
 # Day 2 - RTL Skeleton
 
@@ -48,7 +49,7 @@ Functional RTL FSM-based vending machine that:
 - Declared FSM states and control skeleton (IDLE → WAIT_COIN → CHECK_BALANCE → DISPENSE → RETURN_CHANGE)
 - Began testbench setup in `tb_vending_machine.v`
 - Committed updates in `/src/` and `/sim/` with appropriate structure
-- Created files 'top.v' for board pins assignment and 'coin_counter' for updation on coins used and information.
+- Created files `top.v` for board pins assignment and `coin_counter` for updation on coins used and information.
 - Next step: implement full RTL logic and simulate
 
 # Why This FSM-Based Structure Was Chosen
