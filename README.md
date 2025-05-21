@@ -26,14 +26,32 @@ Functional RTL FSM-based vending machine that:
 7. Synthesized bitstream for deployment on FPGA Mini
 
 8. Hardware demo using LEDs or 7-segment displays for product dispensing and change indication
+# Block Diagram
+![FSM-Vending-Machine](https://github.com/user-attachments/assets/31d47e1c-2367-4cef-a00c-ae2fc338c674)
+
+# FSM transitio Diagram
 
 # Day 2 - RTL Skeleton
 
 - Created `vending_machine_fsm` module with defined I/O:
   - Inputs: clk, reset, coin_5, coin_10, select_1, select_2, select_3
   - Outputs: dispense, change
+  
+- coin_5, coin_10: simulate ₹5 and ₹10 inputs
+
+- select_1, select_2, select_3: user product selections
+
+- dispense: high when the product is dispensed
+
+- change: high when extra money is returned
+
 - Declared FSM states and control skeleton (IDLE → WAIT_COIN → CHECK_BALANCE → DISPENSE → RETURN_CHANGE)
 - Began testbench setup in `tb_vending_machine.v`
 - Committed updates in `/src/` and `/sim/` with appropriate structure
 - Next step: implement full RTL logic and simulate
+
+# Why This FSM-Based Structure Was Chosen
+- Sequential Control: A vending machine operates step-by-step — insert coin → validate → select item → dispense — which maps perfectly to FSM states.
+- Simplicity + Scalability: Using discrete states like IDLE, WAIT_COIN, CHECK_BALANCE, DISPENSE, and RETURN_CHANGE makes the logic modular and easy to debug or extend (e.g., for more products or pricing).
+
 
