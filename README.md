@@ -55,5 +55,11 @@ Functional RTL FSM-based vending machine that:
 # Why This FSM-Based Structure Was Chosen
 - Sequential Control: A vending machine operates step-by-step — insert coin → validate → select item → dispense — which maps perfectly to FSM states.
 - Simplicity + Scalability: Using discrete states like IDLE, WAIT_COIN, CHECK_BALANCE, DISPENSE, and RETURN_CHANGE makes the logic modular and easy to debug or extend (e.g., for more products or pricing).
+# Simulation Waveform
+![WhatsApp Image 2025-05-22 at 23 18 21_3cc10b63](https://github.com/user-attachments/assets/6cc76afd-b0dc-4585-a0ec-1d11308a0903)
+Waveform shows clean transitions of:
+- State machine outputs: - `IDLE`,`WAIT_COIN`, `VALIDATE`,`DISPENSE`, `RETURN_CHANGE`
+- Balance tracking
+- Correct one-cycle `dispense` and `change` pulses
 
-
+The simulated result is a Pass.
