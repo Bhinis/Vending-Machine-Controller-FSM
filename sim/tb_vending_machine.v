@@ -2,52 +2,69 @@
 
 module tb_vending_machine;
 
-    reg clk;
-    reg reset;
-    reg coin_5;
-    reg coin_10;
-    reg select_1;
-    reg select_2;
-    reg select_3;
+  // Inputs
+  reg clk;
+  reg reset;
+  reg coin_5;
+  reg coin_10;
+  reg select_1;
+  reg select_2;
 
-    wire dispense;
-    wire change;
+  // Outputs
+  wire dispense;
+  wire change;
 
-    vending_machine_fsm uut (
-        .clk(clk),
-        .reset(reset),
-        .coin_5(coin_5),
-        .coin_10(coin_10),
-        .select_1(select_1),
-        .select_2(select_2),
-        .select_3(select_3),
-        .dispense(dispense),
-        .change(change)
-    );
+  // Instantiate the Unit Under Test (UUT)
+  top uut (
+    .clk(clk),
+    .reset(reset),
+    .coin_5(coin_5),
+    .coin_10(coin_10),
+    .select_1(select_1),
+    .select_2(select_2),
+    .dispense(dispense),
+    .change(change)
+  );
 
- 
-    initial begin
-        clk = 0;
-        always #5 clk = ~clk;
-    end
+  // Clock generation
+  initial clk = 0;
+  always #5 clk = ~clk; // 100 MHz clock
 
-    initial begin
-        reset = 1;
-        coin_5 = 0;
-        coin_10 = 0;
-        select_1 = 0;
-        select_2 = 0;
-        select_3 = 0;
+  initial begin
+    // Initialize Inputs
+    reset = 1;
+    coin_5 = 0;
+    coin_10 = 0;
+    select_1 = 0;
+    select_2 = 0;
 
-        #20;
-        reset = 0;
+    // Wait 20 ns and release reset
+    #20;
+    reset = 0;
 
-        // TEST CASES 
-        // coin_5 = 1; #10; coin_5 = 0;
-        // select_1 = 1; #10; select_1 = 0;
+    // Insert ₹5 coin
+    #20;
+    coin_5 = 1;
+    #10;
+    coin_5 = 0;
 
-        #200; 
-        $finish;
-    end
+    // Insert ₹10 coin
+    #30;
+    coin_10 = 1;
+    #10;
+    coin_10 = 0;
+
+    // Select item 2 (₹15)
+    #30;
+    select_2 = 1;
+    #10;
+    select_2 = 0;
+
+    // Wait for FSM to process and return to idle
+    #100;
+
+    // End simulation
+    $finish;
+  end
 
 endmodule
